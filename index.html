@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="김민수 ♥ 이지영 결혼식에 초대합니다">
+    <title>민수 ♥ 지영 결혼합니다</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@200;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 메인 헤더 -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="date-info">2025. 05. 24. SAT</div>
+            <h1 class="couple-names">
+                <span class="groom-name">민수</span>
+                <span class="heart">♥</span>
+                <span class="bride-name">지영</span>
+            </h1>
+            <p class="subtitle">결혼합니다</p>
+        </div>
+    </header>
+
+    <!-- 메인 이미지 -->
+    <section class="main-image">
+        <img src="images/main-photo.jpg" alt="신랑신부 사진">
+    </section>
+
+    <!-- 인사말 -->
+    <section class="greeting">
+        <div class="container">
+            <h2>초대합니다</h2>
+            <div class="greeting-text">
+                <p>
+                    서로가 마주보며 다져온 사랑을<br>
+                    이제 함께 한 곳을 바라보며<br>
+                    걸어갈 수 있는 큰 사랑으로 키우고자 합니다.
+                </p>
+                <p>
+                    저희 두 사람이 사랑의 이름으로<br>
+                    지켜나갈 수 있도록<br>
+                    앞날을 축복해 주시면 감사하겠습니다.
+                </p>
+            </div>
+
+            <!-- 혼주 정보 -->
+            <div class="parents-info">
+                <div class="parent-item">
+                    <span class="parent-title">김태호 · 박미정</span>
+                    <span class="parent-relation">의 장남</span>
+                    <span class="person-name">민수</span>
+                </div>
+                <div class="parent-item">
+                    <span class="parent-title">이준호 · 최수진</span>
+                    <span class="parent-relation">의 장녀</span>
+                    <span class="person-name">지영</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 예식 정보 -->
+    <section class="wedding-info">
+        <div class="container">
+            <h2>Wedding Information</h2>
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="info-label">날짜</span>
+                    <span class="info-value">2025년 5월 24일 토요일</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">시간</span>
+                    <span class="info-value">오후 2시</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">장소</span>
+                    <span class="info-value">서울 웨딩홀 3층 그랜드볼룸</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">주소</span>
+                    <span class="info-value">서울특별시 강남구 테헤란로 123</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 갤러리 -->
+    <section class="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images/photo1.jpg" alt="사진 1"></div>
+                <div class="gallery-item"><img src="images/photo2.jpg" alt="사진 2"></div>
+                <div class="gallery-item"><img src="images/photo3.jpg" alt="사진 3"></div>
+                <div class="gallery-item"><img src="images/photo4.jpg" alt="사진 4"></div>
+                <div class="gallery-item"><img src="images/photo5.jpg" alt="사진 5"></div>
+                <div class="gallery-item"><img src="images/photo6.jpg" alt="사진 6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 디데이 카운터 -->
+    <section class="d-day">
+        <div class="container">
+            <h2>Wedding Day</h2>
+            <div id="countdown" class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">0</span>
+                    <span class="countdown-label">DAYS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">0</span>
+                    <span class="countdown-label">HOURS</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">0</span>
+                    <span class="countdown-label">MINUTES</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">0</span>
+                    <span class="countdown-label">SECONDS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 지도 -->
+    <section class="location">
+        <div class="container">
+            <h2>Location</h2>
+            <div class="map-container">
+                <!-- 카카오맵 또는 네이버맵 API를 여기에 추가 -->
+                <div id="map" class="map-placeholder">
+                    <p>지도 API를 연동해주세요</p>
+                    <p class="map-address">서울특별시 강남구 테헤란로 123</p>
+                </div>
+            </div>
+
+            <!-- 교통편 안내 -->
+            <div class="transportation">
+                <h3>오시는 길</h3>
+                <div class="transport-method">
+                    <h4>🚇 지하철</h4>
+                    <p>2호선 강남역 3번 출구에서 도보 5분</p>
+                </div>
+                <div class="transport-method">
+                    <h4>🚌 버스</h4>
+                    <p>간선: 146, 340, 360</p>
+                    <p>지선: 4412, 6411</p>
+                </div>
+                <div class="transport-method">
+                    <h4>🚗 자가용</h4>
+                    <p>건물 내 주차장 이용 가능 (3시간 무료)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 축의금 안내 -->
+    <section class="account-info">
+        <div class="container">
+            <h2>마음 전하실 곳</h2>
+            <p class="account-description">참석이 어려우신 분들을 위해 계좌번호를 안내드립니다.</p>
+
+            <div class="account-section">
+                <h3>신랑측</h3>
+                <div class="account-item">
+                    <div class="account-holder">
+                        <span class="holder-name">신랑 김민수</span>
+                        <button class="copy-btn" onclick="copyAccount('1002-123-456789')">복사</button>
+                    </div>
+                    <div class="account-number">우리은행 1002-123-456789</div>
+                </div>
+                <div class="account-item">
+                    <div class="account-holder">
+                        <span class="holder-name">신랑 부 김태호</span>
+                        <button class="copy-btn" onclick="copyAccount('110-456-789012')">복사</button>
+                    </div>
+                    <div class="account-number">신한은행 110-456-789012</div>
+                </div>
+                <div class="account-item">
+                    <div class="account-holder">
+                        <span class="holder-name">신랑 모 박미정</span>
+                        <button class="copy-btn" onclick="copyAccount('356-7890-1234-56')">복사</button>
+                    </div>
+                    <div class="account-number">국민은행 356-7890-1234-56</div>
+                </div>
+            </div>
+
+            <div class="account-section">
+                <h3>신부측</h3>
+                <div class="account-item">
+                    <div class="account-holder">
+                        <span class="holder-name">신부 이지영</span>
+                        <button class="copy-btn" onclick="copyAccount('3333-12-3456789')">복사</button>
+                    </div>
+                    <div class="account-number">카카오뱅크 3333-12-3456789</div>
+                </div>
+                <div class="account-item">
+                    <div class="account-holder">
+                        <span class="holder-name">신부 부 이준호</span>
+                        <button class="copy-btn" onclick="copyAccount('012-345678-91-234')">복사</button>
+                    </div>
+                    <div class="account-number">하나은행 012-345678-91-234</div>
+                </div>
+                <div class="account-item">
+                    <div class="account-holder">
+                        <span class="holder-name">신부 모 최수진</span>
+                        <button class="copy-btn" onclick="copyAccount('222-333-444555')">복사</button>
+                    </div>
+                    <div class="account-number">기업은행 222-333-444555</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 -->
+    <section class="contact">
+        <div class="container">
+            <h2>연락하기</h2>
+            <div class="contact-buttons">
+                <div class="contact-person">
+                    <span class="contact-name">신랑 김민수</span>
+                    <div class="contact-actions">
+                        <a href="tel:010-1234-5678" class="contact-btn">📞 전화</a>
+                        <a href="sms:010-1234-5678" class="contact-btn">💬 문자</a>
+                    </div>
+                </div>
+                <div class="contact-person">
+                    <span class="contact-name">신부 이지영</span>
+                    <div class="contact-actions">
+                        <a href="tel:010-8765-4321" class="contact-btn">📞 전화</a>
+                        <a href="sms:010-8765-4321" class="contact-btn">💬 문자</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 방명록 -->
+    <section class="guestbook">
+        <div class="container">
+            <h2>축하 메시지</h2>
+            <div class="guestbook-form">
+                <input type="text" id="guestName" placeholder="이름을 입력해주세요" maxlength="20">
+                <textarea id="guestMessage" placeholder="축하 메시지를 남겨주세요" maxlength="200"></textarea>
+                <button onclick="submitMessage()" class="submit-btn">메시지 남기기</button>
+            </div>
+            <div id="messageList" class="message-list">
+                <!-- 메시지가 여기에 표시됩니다 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 공유하기 -->
+    <section class="share">
+        <div class="container">
+            <h2>Share</h2>
+            <div class="share-buttons">
+                <button onclick="shareKakao()" class="share-btn kakao">카카오톡</button>
+                <button onclick="shareURL()" class="share-btn link">링크 복사</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <p>민수 ♥ 지영</p>
+            <p class="footer-date">2025. 05. 24</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

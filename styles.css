@@ -1,0 +1,612 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #d4a574;
+    --secondary-color: #8b7355;
+    --text-dark: #333;
+    --text-light: #666;
+    --background-light: #faf8f5;
+    --white: #ffffff;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 30px 0 15px;
+    color: var(--secondary-color);
+}
+
+/* 헤더 */
+.main-header {
+    background: linear-gradient(135deg, #f5e6d3 0%, #d4a574 100%);
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--white);
+}
+
+.header-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.date-info {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.couple-names {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.groom-name, .bride-name {
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.heart {
+    color: #fff;
+    font-size: 36px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.subtitle {
+    font-size: 18px;
+    letter-spacing: 5px;
+    opacity: 0.9;
+}
+
+/* 메인 이미지 */
+.main-image {
+    text-align: center;
+    background-color: var(--white);
+    padding: 0;
+}
+
+.main-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 인사말 */
+.greeting {
+    background-color: var(--white);
+    text-align: center;
+}
+
+.greeting-text {
+    margin: 40px 0;
+    line-height: 2;
+    color: var(--text-light);
+}
+
+.greeting-text p {
+    margin: 30px 0;
+}
+
+/* 혼주 정보 */
+.parents-info {
+    margin-top: 50px;
+    padding: 30px 20px;
+    background-color: var(--background-light);
+    border-radius: 10px;
+}
+
+.parent-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    font-size: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.parent-title {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.parent-relation {
+    color: var(--text-light);
+}
+
+.person-name {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* 예식 정보 */
+.wedding-info {
+    background-color: var(--background-light);
+}
+
+.info-box {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--secondary-color);
+    font-weight: 600;
+    min-width: 60px;
+}
+
+.info-value {
+    color: var(--text-dark);
+    text-align: right;
+    flex: 1;
+}
+
+/* 갤러리 */
+.gallery {
+    background-color: var(--white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background-color: #f0f0f0;
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 디데이 카운터 */
+.d-day {
+    background: linear-gradient(135deg, #d4a574 0%, #8b7355 100%);
+    color: var(--white);
+}
+
+.d-day h2 {
+    color: var(--white);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.countdown-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+/* 지도 */
+.location {
+    background-color: var(--white);
+}
+
+.map-container {
+    margin: 30px 0;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+}
+
+.map-address {
+    margin-top: 10px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.transportation {
+    margin-top: 40px;
+}
+
+.transportation h3 {
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.transport-method {
+    background-color: var(--background-light);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+.transport-method h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.transport-method p {
+    color: var(--text-light);
+    margin: 5px 0;
+}
+
+/* 축의금 정보 */
+.account-info {
+    background-color: var(--background-light);
+}
+
+.account-description {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.account-section {
+    background-color: var(--white);
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.account-section h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.account-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.account-item:last-child {
+    border-bottom: none;
+}
+
+.account-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.holder-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.copy-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.account-number {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* 연락처 */
+.contact {
+    background-color: var(--white);
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-person {
+    text-align: center;
+}
+
+.contact-name {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* 방명록 */
+.guestbook {
+    background-color: var(--background-light);
+}
+
+.guestbook-form {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.guestbook-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message-item {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.message-author {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.message-date {
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+.message-content {
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* 공유하기 */
+.share {
+    background-color: var(--white);
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.share-btn.kakao {
+    background-color: #FEE500;
+    color: #3c1e1e;
+}
+
+.share-btn.link {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* 푸터 */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+.footer-date {
+    font-size: 14px;
+    opacity: 0.8;
+    letter-spacing: 2px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .couple-names {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .countdown-value {
+        font-size: 36px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .info-value {
+        text-align: left;
+        margin-top: 5px;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 0.6s ease-out;
+}
