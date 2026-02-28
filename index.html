@@ -28,13 +28,15 @@
             <span class="hero-name">우지현</span>
           </div>
         </div>
-        <figure class="hero-visual">
-          <img
-            src="images/main.jpeg"
-            alt="김태완 우지현 웨딩 메인 사진"
-            loading="eager"
-          />
-        </figure>
+        <div class="hero-visual-wrap">
+          <figure class="hero-visual">
+            <img
+              src="images/main.jpeg"
+              alt="김태완 우지현 웨딩 메인 사진"
+              loading="eager"
+            />
+          </figure>
+        </div>
         <div class="hero-bottom">
           <p class="hero-script">Taewan and Jihyun</p>
           <p class="hero-event-text">2026년 07월 11일 토요일 12:00<br />메리빌리아 더프레스티지 수원 2층 가든홀</p>
@@ -233,12 +235,19 @@
       </section>
       </main>
 
-      <nav class="floating-nav" aria-label="빠른 이동">
-        <a href="#hero">상단</a>
-        <a href="#location">위치</a>
-        <a href="#rsvp">RSVP</a>
-      </nav>
     </div>
+
+    <div class="fixed-gap-controls" aria-label="빠른 기능">
+      <button class="quick-btn" id="quick-top" type="button" aria-label="최상단 이동">↑</button>
+      <button class="quick-btn" id="quick-share" type="button" aria-label="공유하기">⤴</button>
+    </div>
+
+    <nav class="bottom-control-bar" aria-label="하단 컨트롤 바">
+      <a href="#hero">홈</a>
+      <a href="#location">오시는 길</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="tel:031-000-0000">연락</a>
+    </nav>
 
     <div class="gallery-modal" id="gallery-modal" hidden>
       <div class="gallery-modal-content">

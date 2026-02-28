@@ -291,6 +291,20 @@ function initMusicControl() {
   });
 }
 
+function initBottomControls() {
+  const quickTop = $("quick-top");
+  const quickShare = $("quick-share");
+
+  quickTop?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  quickShare?.addEventListener("click", () => {
+    const shareButton = $("share-link");
+    shareButton?.click();
+  });
+}
+
 function renderGallery(index) {
   const len = GALLERY_IMAGES.length;
   activeGalleryIndex = ((index % len) + len) % len;
@@ -406,6 +420,7 @@ function init() {
   initGallery();
   initShare();
   initMusicControl();
+  initBottomControls();
   initRSVP();
 }
 
