@@ -1,7 +1,7 @@
 const RSVP_ENDPOINT = "";
 const MIN_SUBMIT_MS = 1500;
 const EVENT_DATE_KST = "2026-07-11T12:00:00+09:00";
-const DEST_NAME = "메리빌리아 더프레스티지 수원 가든홀";
+const DEST_NAME = "메리빌리아 더프레스티지 수원 2층 가든홀";
 const DEST_ADDRESS = "경기도 수원시 권선구 세화로 116";
 const DEST_LAT = 37.264573;
 const DEST_LNG = 127.00184;
