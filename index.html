@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="모바일 청첩장 - 결혼식 정보, 오시는 길, RSVP, 공유 기능"
-    />
-    <title>Wedding Invitation</title>
+    <meta name="description" content="김태완, 우지현 결혼식 모바일 청첩장" />
+    <title>태완 & 지현 결혼합니다</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,33 +15,44 @@
   </head>
   <body>
     <div class="site-bg" aria-hidden="true"></div>
+
     <header class="hero section reveal" id="hero">
-      <p class="eyebrow">Wedding Invitation</p>
-      <h1 class="couple">민준 <span>&amp;</span> 서연</h1>
-      <p class="date">2026.10.31 SAT 12:30 PM</p>
-      <p class="hero-message">당신의 걸음이 저희의 가장 큰 축복입니다.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#rsvp">RSVP 하기</a>
-        <a class="btn btn-soft" href="#info">예식 정보 보기</a>
+      <div class="hero-frame">
+        <p class="eyebrow">Wedding Invitation</p>
+        <h1 class="couple">김태완 <span>&amp;</span> 우지현</h1>
+        <p class="date">2026년 07월 11일 토요일 12:00</p>
+        <p class="hero-message">가장 소중한 날, 따뜻한 축복으로 함께해 주세요.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#rsvp">RSVP 하기</a>
+          <a class="btn btn-soft" href="#location">오시는 길 보기</a>
+        </div>
       </div>
+      <figure class="hero-visual">
+        <img
+          src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80"
+          alt="웨딩 무드 이미지"
+          loading="eager"
+        />
+      </figure>
     </header>
 
     <main>
       <section class="section card reveal" id="message" aria-labelledby="message-title">
-        <h2 id="message-title">초대의 글</h2>
+        <h2 id="message-title">초대합니다</h2>
         <p>
-          서로 다른 계절을 지나 같은 마음으로 오늘에 닿았습니다. 소중한 분들을 모시고
-          새로운 시작을 약속하고자 합니다.
+          저희 두 사람이 사랑과 믿음으로 한 가정을 이루게 되었습니다.<br />
+          귀한 걸음으로 함께하시어 축복해 주시면 더없는 기쁨으로 간직하겠습니다.
         </p>
-        <p>귀한 걸음 하시어 기쁨의 순간을 함께해 주시면 감사하겠습니다.</p>
         <div class="family-grid">
-          <div>
+          <div class="family-card groom-side">
             <p class="label">신랑측</p>
-            <p>아버지 김정우 · 어머니 이선희</p>
+            <p>신랑 김태완</p>
+            <p>아버지 김종순 · 어머니 김성실</p>
           </div>
-          <div>
+          <div class="family-card bride-side">
             <p class="label">신부측</p>
-            <p>아버지 박영호 · 어머니 최은정</p>
+            <p>신부 우지현</p>
+            <p>아버지 우돈규 · 어머니 김학임</p>
           </div>
         </div>
       </section>
@@ -52,34 +60,67 @@
       <section class="section card reveal" id="info" aria-labelledby="info-title">
         <h2 id="info-title">예식 안내</h2>
         <dl class="info-list">
-          <div><dt>일시</dt><dd>2026년 10월 31일 토요일 오후 12시 30분</dd></div>
-          <div><dt>장소</dt><dd>라온웨딩홀 3층 그랜드홀</dd></div>
-          <div><dt>주소</dt><dd>서울시 강남구 테헤란로 123</dd></div>
+          <div><dt>일시</dt><dd>2026년 07월 11일 토요일 12:00</dd></div>
+          <div><dt>장소</dt><dd>메리빌리아 더프레스티지 수원 가든홀</dd></div>
+          <div><dt>주소</dt><dd>경기도 수원시 권선구 세화로 116</dd></div>
         </dl>
         <div class="stack-actions">
-          <a class="btn btn-primary" href="https://maps.google.com/?q=서울시 강남구 테헤란로 123" target="_blank" rel="noopener noreferrer">지도 열기</a>
           <button class="btn btn-soft" id="copy-address" type="button">주소 복사</button>
+          <a class="btn btn-soft" href="tel:031-000-0000">예식장 전화</a>
         </div>
         <p class="feedback" id="address-feedback" role="status" aria-live="polite"></p>
       </section>
 
       <section class="section card reveal" id="gallery" aria-labelledby="gallery-title">
         <h2 id="gallery-title">갤러리</h2>
-        <div class="gallery-grid">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=900&q=80" alt="웨딩 사진 1" />
-          <img loading="lazy" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80" alt="웨딩 사진 2" />
-          <img loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="웨딩 사진 3" />
-          <img loading="lazy" src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=80" alt="웨딩 사진 4" />
+        <div class="gallery-viewer">
+          <button class="gallery-nav prev" id="gallery-prev" type="button" aria-label="이전 사진">&#10094;</button>
+          <button class="gallery-main" id="gallery-main" type="button" aria-label="사진 크게 보기">
+            <img id="gallery-main-image" src="" alt="" />
+          </button>
+          <button class="gallery-nav next" id="gallery-next" type="button" aria-label="다음 사진">&#10095;</button>
         </div>
+        <div class="thumb-strip" id="gallery-thumbs"></div>
       </section>
 
       <section class="section card reveal" id="location" aria-labelledby="location-title">
         <h2 id="location-title">오시는 길</h2>
-        <ul class="transport-list">
-          <li><strong>지하철</strong> 2호선 역삼역 4번 출구 도보 7분</li>
-          <li><strong>버스</strong> 테헤란로 정류장 하차 후 도보 3분</li>
-          <li><strong>주차</strong> 건물 지하 2-4층, 2시간 무료</li>
-        </ul>
+        <div class="map-frame">
+          <iframe
+            title="메리빌리아 더프레스티지 수원 위치"
+            src="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%88%98%EC%9B%90%EC%8B%9C%20%EA%B6%8C%EC%84%A0%EA%B5%AC%20%EC%84%B8%ED%99%94%EB%A1%9C%20116"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <h3>지도 앱 열기</h3>
+        <div class="stack-actions map-actions">
+          <a class="btn btn-soft" id="naver-map-link" href="#" target="_blank" rel="noopener noreferrer">네이버지도</a>
+          <a class="btn btn-soft" id="kakao-map-link" href="#" target="_blank" rel="noopener noreferrer">카카오지도</a>
+          <a class="btn btn-soft" id="google-map-link" href="#" target="_blank" rel="noopener noreferrer">구글맵</a>
+        </div>
+
+        <h3>네비게이션</h3>
+        <div class="stack-actions map-actions">
+          <a class="btn btn-primary" id="naver-navi-link" href="#">네이버지도 네비</a>
+          <a class="btn btn-primary" id="tmap-navi-link" href="#">티맵 네비</a>
+        </div>
+
+        <div class="transport-block">
+          <h3>대중교통 안내</h3>
+          <ul class="transport-list">
+            <li><strong>지하철</strong> 수원역(1호선/수인분당선) 하차 후 도보 이동</li>
+            <li><strong>버스</strong> 수원역 환승센터 하차 후 도보 약 10분</li>
+          </ul>
+        </div>
+
+        <div class="transport-block">
+          <h3>자차 및 주차 안내</h3>
+          <ul class="transport-list">
+            <li><strong>자차</strong> 목적지: 메리빌리아 더프레스티지 수원</li>
+            <li><strong>주차</strong> 예식장 주차장 이용 가능 (현장 안내 요원 배치)</li>
+          </ul>
+        </div>
       </section>
 
       <section class="section card reveal" id="rsvp" aria-labelledby="rsvp-title">
@@ -134,14 +175,33 @@
             <a id="google-calendar" class="btn btn-soft" href="#" target="_blank" rel="noopener noreferrer">Google Calendar</a>
             <a id="ical-download" class="btn btn-soft" href="#" download="wedding-invitation.ics">iCal 다운로드</a>
           </div>
+          <p class="dday" id="d-day">D-day 계산중...</p>
+        </div>
+
+        <div class="extras-block">
+          <h3>축하 화환 보내기</h3>
+          <button class="btn btn-soft" id="toggle-wreath" type="button" aria-expanded="false">화환 정보 보기</button>
+          <div id="wreath-panel" class="info-panel" hidden>
+            <p><strong>배송 장소</strong> 메리빌리아 더프레스티지 수원 가든홀</p>
+            <p><strong>배송 주소</strong> 경기도 수원시 권선구 세화로 116</p>
+            <p><strong>권장 도착 시간</strong> 예식 당일 오전 10:00 ~ 11:30</p>
+            <p><strong>수령자 표기</strong> 김태완 · 우지현 결혼식</p>
+          </div>
         </div>
 
         <div class="extras-block">
           <h3>마음 전하실 곳</h3>
-          <button class="btn btn-soft" id="toggle-gift" type="button" aria-expanded="false">계좌 정보 보기</button>
-          <div id="gift-panel" class="gift-panel" hidden>
-            <p>신랑측: 국민은행 123456-78-901234 김민준</p>
-            <p>신부측: 신한은행 987654-32-109876 박서연</p>
+          <div class="gift-grid">
+            <div class="gift-side groom-side">
+              <p class="label">신랑측 계좌</p>
+              <p>국민은행 111111-22-333333 (임시)</p>
+              <p>예금주: 김태완</p>
+            </div>
+            <div class="gift-side bride-side">
+              <p class="label">신부측 계좌</p>
+              <p>신한은행 444444-55-666666 (임시)</p>
+              <p>예금주: 우지현</p>
+            </div>
           </div>
         </div>
 
@@ -164,15 +224,24 @@
       </section>
 
       <section class="section footer-note reveal" id="footer">
-        <p>함께해 주셔서 진심으로 감사합니다.</p>
+        <p>귀한 발걸음으로 함께해 주셔서 감사합니다.</p>
       </section>
     </main>
 
     <nav class="floating-nav" aria-label="빠른 이동">
       <a href="#hero">상단</a>
-      <a href="#info">예식</a>
+      <a href="#location">위치</a>
       <a href="#rsvp">RSVP</a>
     </nav>
+
+    <div class="gallery-modal" id="gallery-modal" hidden>
+      <div class="gallery-modal-content">
+        <button class="modal-close" id="gallery-close" type="button" aria-label="닫기">&times;</button>
+        <button class="gallery-nav prev" id="modal-prev" type="button" aria-label="이전 사진">&#10094;</button>
+        <img id="modal-image" src="" alt="" />
+        <button class="gallery-nav next" id="modal-next" type="button" aria-label="다음 사진">&#10095;</button>
+      </div>
+    </div>
 
     <script src="script.js" defer></script>
   </body>

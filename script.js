@@ -1,5 +1,35 @@
 const RSVP_ENDPOINT = "";
 const MIN_SUBMIT_MS = 1500;
+const EVENT_DATE_KST = "2026-07-11T12:00:00+09:00";
+const DEST_NAME = "메리빌리아 더프레스티지 수원 가든홀";
+const DEST_ADDRESS = "경기도 수원시 권선구 세화로 116";
+const DEST_LAT = 37.264573;
+const DEST_LNG = 127.00184;
+
+const GALLERY_IMAGES = [
+  {
+    src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+    thumb: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=320&q=80",
+    alt: "갤러리 사진 1",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80",
+    thumb: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=320&q=80",
+    alt: "갤러리 사진 2",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+    thumb: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=320&q=80",
+    alt: "갤러리 사진 3",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=80",
+    thumb: "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=320&q=80",
+    alt: "갤러리 사진 4",
+  },
+];
+
+let activeGalleryIndex = 0;
 
 const $ = (id) => document.getElementById(id);
 
@@ -30,7 +60,7 @@ function initReveal() {
       });
     },
     {
-      threshold: 0.18,
+      threshold: 0.16,
       rootMargin: "0px 0px -8% 0px",
     }
   );
@@ -64,7 +94,7 @@ function validateRSVP(formData) {
     return { ok: false, message: "잘못된 요청입니다." };
   }
   if (!openedAt || Date.now() - openedAt < MIN_SUBMIT_MS) {
-    return { ok: false, message: "입력 내용을 다시 확인 후 제출해 주세요." };
+    return { ok: false, message: "입력 후 잠시 뒤 제출해 주세요." };
   }
 
   return { ok: true };
@@ -109,10 +139,9 @@ async function submitRSVP(payload) {
 function initAddressCopy() {
   const button = $("copy-address");
   const feedback = $("address-feedback");
-  const text = "서울시 강남구 테헤란로 123";
   button.addEventListener("click", async () => {
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(DEST_ADDRESS);
       setFeedback(feedback, "주소가 복사되었습니다.", "success");
     } catch {
       setFeedback(feedback, "복사에 실패했습니다. 수동으로 복사해 주세요.", "error");
@@ -121,46 +150,77 @@ function initAddressCopy() {
 }
 
 function buildCalendarLinks() {
-  const title = "민준 & 서연 결혼식";
-  const details = "라온웨딩홀 3층 그랜드홀에서 뵙겠습니다.";
-  const location = "서울시 강남구 테헤란로 123";
-  const start = "20261031T033000Z";
-  const end = "20261031T053000Z";
+  const startDate = new Date(EVENT_DATE_KST);
+  const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
+
+  const toUtcCompact = (date) =>
+    date.toISOString().replaceAll("-", "").replaceAll(":", "").replace(".000", "");
+
+  const title = "김태완 & 우지현 결혼식";
+  const details = `${DEST_NAME}에서 뵙겠습니다.`;
+  const start = toUtcCompact(startDate);
+  const end = toUtcCompact(endDate);
 
   const googleUrl = new URL("https://calendar.google.com/calendar/render");
   googleUrl.searchParams.set("action", "TEMPLATE");
   googleUrl.searchParams.set("text", title);
   googleUrl.searchParams.set("dates", `${start}/${end}`);
   googleUrl.searchParams.set("details", details);
-  googleUrl.searchParams.set("location", location);
+  googleUrl.searchParams.set("location", DEST_ADDRESS);
 
   const ics = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
     "PRODID:-//Wedding Invitation//KR",
     "BEGIN:VEVENT",
-    "UID:wedding-invitation-20261031@example.com",
-    "DTSTAMP:20260101T000000Z",
+    "UID:wedding-invitation-20260711@example.com",
+    `DTSTAMP:${toUtcCompact(new Date())}`,
     `DTSTART:${start}`,
     `DTEND:${end}`,
     `SUMMARY:${title}`,
     `DESCRIPTION:${details}`,
-    `LOCATION:${location}`,
+    `LOCATION:${DEST_ADDRESS}`,
     "END:VEVENT",
     "END:VCALENDAR",
   ].join("\r\n");
 
-  const googleLink = $("google-calendar");
-  googleLink.href = googleUrl.toString();
-
+  $("google-calendar").href = googleUrl.toString();
   const icalLink = $("ical-download");
-  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-  icalLink.href = URL.createObjectURL(blob);
+  icalLink.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
 }
 
-function initGiftPanel() {
-  const toggle = $("toggle-gift");
-  const panel = $("gift-panel");
+function initDDay() {
+  const target = $("d-day");
+  const now = new Date();
+  const event = new Date(EVENT_DATE_KST);
+  const days = Math.ceil((event.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+  if (days > 0) {
+    target.textContent = `D-${days} days`;
+    return;
+  }
+  if (days === 0) {
+    target.textContent = "D-day today!";
+    return;
+  }
+  target.textContent = `D+${Math.abs(days)} days`;
+}
+
+function initMapLinks() {
+  const encodedName = encodeURIComponent(DEST_NAME);
+  const encodedAddress = encodeURIComponent(DEST_ADDRESS);
+  const appName = encodeURIComponent(window.location.origin);
+
+  $("naver-map-link").href = `https://map.naver.com/v5/search/${encodedAddress}`;
+  $("kakao-map-link").href = `https://map.kakao.com/link/search/${encodedAddress}`;
+  $("google-map-link").href = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+
+  $("naver-navi-link").href = `nmap://navigation?dlat=${DEST_LAT}&dlng=${DEST_LNG}&dname=${encodedName}&appname=${appName}`;
+  $("tmap-navi-link").href = `tmap://route?rGoName=${encodedName}&rGoX=${DEST_LNG}&rGoY=${DEST_LAT}`;
+}
+
+function setupSimpleToggle(buttonId, panelId) {
+  const toggle = $(buttonId);
+  const panel = $(panelId);
   toggle.addEventListener("click", () => {
     const expanded = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!expanded));
@@ -174,7 +234,7 @@ function initShare() {
   const feedback = $("share-feedback");
 
   const shareData = {
-    title: "민준 & 서연 결혼식",
+    title: "김태완 & 우지현 결혼식",
     text: "모바일 청첩장으로 초대드립니다.",
     url: window.location.href,
   };
@@ -184,8 +244,8 @@ function initShare() {
       try {
         await navigator.share(shareData);
         setFeedback(feedback, "공유가 완료되었습니다.", "success");
-      } catch {
-        if (error instanceof Error && error.name !== "AbortError") {
+      } catch (err) {
+        if (err instanceof Error && err.name !== "AbortError") {
           setFeedback(feedback, "공유 중 문제가 발생했습니다.", "error");
         }
       }
@@ -194,8 +254,8 @@ function initShare() {
 
     try {
       await navigator.clipboard.writeText(window.location.href);
-      setFeedback(feedback, "공유 기능 미지원 기기입니다. 링크를 복사했습니다.", "success");
-        } catch {
+      setFeedback(feedback, "링크가 복사되었습니다.", "success");
+    } catch {
       setFeedback(feedback, "링크 복사에 실패했습니다.", "error");
     }
   });
@@ -229,6 +289,79 @@ function initMusicControl() {
     button.textContent = "음악 재생";
     button.setAttribute("aria-pressed", "false");
   });
+}
+
+function renderGallery(index) {
+  const len = GALLERY_IMAGES.length;
+  activeGalleryIndex = ((index % len) + len) % len;
+  const image = GALLERY_IMAGES[activeGalleryIndex];
+  const mainImage = $("gallery-main-image");
+  mainImage.src = image.src;
+  mainImage.alt = image.alt;
+
+  const modalImage = $("modal-image");
+  modalImage.src = image.src;
+  modalImage.alt = image.alt;
+
+  const thumbs = document.querySelectorAll("#gallery-thumbs button");
+  thumbs.forEach((btn, idx) => {
+    btn.classList.toggle("active", idx === activeGalleryIndex);
+  });
+}
+
+function initGallery() {
+  const thumbWrap = $("gallery-thumbs");
+  GALLERY_IMAGES.forEach((item, idx) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("aria-label", `${idx + 1}번 사진 보기`);
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.src = item.thumb;
+    img.alt = item.alt;
+    btn.append(img);
+    btn.addEventListener("click", () => renderGallery(idx));
+    thumbWrap.append(btn);
+  });
+
+  const openModal = () => {
+    $("gallery-modal").hidden = false;
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    $("gallery-modal").hidden = true;
+    document.body.style.overflow = "";
+  };
+
+  $("gallery-main").addEventListener("click", openModal);
+  $("gallery-prev").addEventListener("click", () => renderGallery(activeGalleryIndex - 1));
+  $("gallery-next").addEventListener("click", () => renderGallery(activeGalleryIndex + 1));
+  $("modal-prev").addEventListener("click", () => renderGallery(activeGalleryIndex - 1));
+  $("modal-next").addEventListener("click", () => renderGallery(activeGalleryIndex + 1));
+  $("gallery-close").addEventListener("click", closeModal);
+  $("gallery-modal").addEventListener("click", (event) => {
+    if (event.target === $("gallery-modal")) {
+      closeModal();
+    }
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const swipeArea = $("gallery-main-image");
+  swipeArea.addEventListener("touchstart", (event) => {
+    touchStartX = event.changedTouches[0]?.clientX ?? 0;
+  });
+  swipeArea.addEventListener("touchend", (event) => {
+    touchEndX = event.changedTouches[0]?.clientX ?? 0;
+    const delta = touchEndX - touchStartX;
+    if (Math.abs(delta) < 30) {
+      return;
+    }
+    renderGallery(delta > 0 ? activeGalleryIndex - 1 : activeGalleryIndex + 1);
+  });
+
+  renderGallery(0);
 }
 
 function initRSVP() {
@@ -267,7 +400,10 @@ function init() {
   initReveal();
   initAddressCopy();
   buildCalendarLinks();
-  initGiftPanel();
+  initDDay();
+  initMapLinks();
+  setupSimpleToggle("toggle-wreath", "wreath-panel");
+  initGallery();
   initShare();
   initMusicControl();
   initRSVP();
