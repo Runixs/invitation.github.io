@@ -282,8 +282,9 @@ legend {
 
 .gallery-main img {
   width: 100%;
-  height: min(58vw, 18rem);
-  object-fit: cover;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
   display: block;
 }
 
@@ -483,6 +484,10 @@ textarea:focus {
   z-index: 30;
 }
 
+.gallery-modal[hidden] {
+  display: none;
+}
+
 .gallery-modal-content {
   position: relative;
   width: min(100%, 32rem);
@@ -493,11 +498,12 @@ textarea:focus {
 }
 
 .gallery-modal img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   border-radius: 0.92rem;
   border: 1px solid #d7e4d8;
   max-height: 80vh;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .modal-close {
@@ -529,11 +535,6 @@ textarea:focus {
 }
 
 @media (min-width: 760px) {
-  .hero {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-
   .hero-visual img {
     height: min(42vh, 21rem);
   }
