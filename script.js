@@ -273,12 +273,26 @@ function initShare() {
 function initMusicControl() {
   const audio = $("bgm");
   const button = $("music-toggle");
-  button.addEventListener("click", async () => {
+  const barButton = $("bar-sound");
+  const barIcon = $("bar-sound-icon");
+  const barText = $("bar-sound-text");
+
+  const syncState = (isPlaying) => {
+    button.textContent = isPlaying ? "음악 정지" : "음악 재생";
+    button.setAttribute("aria-pressed", String(isPlaying));
+    if (barButton && barIcon && barText) {
+      barButton.setAttribute("aria-pressed", String(isPlaying));
+      barButton.setAttribute("aria-label", isPlaying ? "사운드 끄기" : "사운드 켜기");
+      barIcon.textContent = isPlaying ? "🔊" : "🔇";
+      barText.textContent = isPlaying ? "Sound On" : "Sound Off";
+    }
+  };
+
+  const toggleAudio = async () => {
     if (audio.paused) {
       try {
         await audio.play();
-        button.textContent = "음악 정지";
-        button.setAttribute("aria-pressed", "true");
+        syncState(true);
       } catch {
         button.textContent = "재생 실패 - 다시 시도";
       }
@@ -286,22 +300,138 @@ function initMusicControl() {
     }
 
     audio.pause();
-    button.textContent = "음악 재생";
-    button.setAttribute("aria-pressed", "false");
-  });
+    syncState(false);
+  };
+
+  button.addEventListener("click", toggleAudio);
+  barButton?.addEventListener("click", toggleAudio);
+  syncState(false);
 }
 
 function initBottomControls() {
-  const quickTop = $("quick-top");
-  const quickShare = $("quick-share");
+  const menuButton = $("bar-menu");
+  const menuPanel = $("bottom-menu-panel");
+  const menuIcon = $("bar-menu-icon");
+  const menuLinks = document.querySelectorAll(".menu-link");
+  const barLink = $("bar-link");
 
-  quickTop?.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const shareSheet = $("share-sheet");
+  const shareClose = $("share-sheet-close");
+  const kakaoButton = $("share-kakao");
+  const copyButton = $("share-copy");
+  const qrButton = $("share-qr");
+
+  const copyAlert = $("copy-alert");
+  const qrSheet = $("qr-sheet");
+  const qrClose = $("qr-close");
+  const qrDownload = $("qr-download");
+  const qrImage = $("qr-image");
+
+  const qrFallbackUrl = `https://api.qrserver.com/v1/create-qr-code/?size=480x480&data=${encodeURIComponent(window.location.href)}`;
+  qrImage?.addEventListener("error", () => {
+    qrImage.src = qrFallbackUrl;
+    if (qrDownload) {
+      qrDownload.href = qrFallbackUrl;
+      qrDownload.removeAttribute("download");
+    }
   });
 
-  quickShare?.addEventListener("click", () => {
-    const shareButton = $("share-link");
-    shareButton?.click();
+  const openMenu = () => {
+    menuPanel.classList.add("open");
+    menuPanel.setAttribute("aria-hidden", "false");
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "메뉴 닫기");
+    menuIcon.textContent = "✕";
+  };
+
+  const closeMenu = () => {
+    menuPanel.classList.remove("open");
+    menuPanel.setAttribute("aria-hidden", "true");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "메뉴 열기");
+    menuIcon.textContent = "☰";
+  };
+
+  menuButton?.addEventListener("click", () => {
+    if (menuPanel.classList.contains("open")) {
+      closeMenu();
+      return;
+    }
+    openMenu();
+  });
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+    });
+  });
+
+  const openShareSheet = () => {
+    shareSheet.hidden = false;
+  };
+
+  const closeShareSheet = () => {
+    shareSheet.hidden = true;
+  };
+
+  barLink?.addEventListener("click", openShareSheet);
+  shareClose?.addEventListener("click", closeShareSheet);
+  shareSheet?.addEventListener("click", (event) => {
+    if (event.target === shareSheet) {
+      closeShareSheet();
+    }
+  });
+
+  kakaoButton?.addEventListener("click", () => {
+    const targetUrl = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent("모바일 청첩장 링크를 확인해 주세요");
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile && navigator.share) {
+      navigator
+        .share({ title: "김태완 ♥ 우지현 결혼식", text: "모바일 청첩장 링크를 확인해 주세요", url: window.location.href })
+        .catch(() => {});
+      return;
+    }
+    window.open(`https://story.kakao.com/s/share?url=${targetUrl}&text=${text}`, "_blank", "noopener,noreferrer");
+  });
+
+  copyButton?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+    } catch {
+      const input = document.createElement("input");
+      input.value = window.location.href;
+      document.body.append(input);
+      input.select();
+      document.execCommand("copy");
+      input.remove();
+    }
+
+    closeShareSheet();
+    copyAlert.hidden = false;
+  });
+
+  copyAlert?.addEventListener("click", () => {
+    copyAlert.hidden = true;
+  });
+
+  qrButton?.addEventListener("click", () => {
+    closeShareSheet();
+    qrSheet.hidden = false;
+  });
+
+  qrClose?.addEventListener("click", () => {
+    qrSheet.hidden = true;
+  });
+
+  qrSheet?.addEventListener("click", (event) => {
+    if (event.target === qrSheet) {
+      qrSheet.hidden = true;
+    }
+  });
+
+  qrDownload?.addEventListener("click", () => {
+    qrSheet.hidden = true;
   });
 }
 

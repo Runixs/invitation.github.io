@@ -237,17 +237,66 @@
 
     </div>
 
-    <div class="fixed-gap-controls" aria-label="빠른 기능">
-      <button class="quick-btn" id="quick-top" type="button" aria-label="최상단 이동">↑</button>
-      <button class="quick-btn" id="quick-share" type="button" aria-label="공유하기">⤴</button>
+    <div class="fixed-gap-controls" aria-label="하단 메뉴 패널">
+      <div class="bottom-menu-panel" id="bottom-menu-panel" aria-hidden="true">
+        <a href="#hero" class="menu-link">홈</a>
+        <a href="#message" class="menu-link">초대글</a>
+        <a href="#info" class="menu-link">예식안내</a>
+        <a href="#gallery" class="menu-link">갤러리</a>
+        <a href="#location" class="menu-link">오시는길</a>
+        <a href="#rsvp" class="menu-link">RSVP</a>
+        <a href="#extras" class="menu-link">추가안내</a>
+      </div>
     </div>
 
     <nav class="bottom-control-bar" aria-label="하단 컨트롤 바">
-      <a href="#hero">홈</a>
-      <a href="#location">오시는 길</a>
-      <a href="#rsvp">RSVP</a>
-      <a href="tel:031-000-0000">연락</a>
+      <button class="bar-control" id="bar-sound" type="button" aria-label="사운드 켜기" aria-pressed="false">
+        <span class="bar-icon" id="bar-sound-icon">🔇</span>
+        <span class="bar-text" id="bar-sound-text">Sound Off</span>
+      </button>
+      <button class="bar-control" id="bar-menu" type="button" aria-label="메뉴 열기" aria-expanded="false">
+        <span class="bar-icon" id="bar-menu-icon">☰</span>
+        <span class="bar-text">Menu</span>
+      </button>
+      <button class="bar-control" id="bar-link" type="button" aria-label="링크 공유">
+        <span class="bar-icon">🔗</span>
+        <span class="bar-text">Link</span>
+      </button>
     </nav>
+
+    <div class="sheet-overlay" id="share-sheet" hidden>
+      <div class="share-sheet-card" role="dialog" aria-label="링크 공유 메뉴">
+        <div class="share-option-row">
+          <button class="share-option" id="share-kakao" type="button" aria-label="카카오톡 공유">
+            <span class="share-icon">🟩</span>
+            <span class="share-label">카카오톡</span>
+          </button>
+          <button class="share-option" id="share-copy" type="button" aria-label="URL 복사">
+            <span class="share-icon">📋</span>
+            <span class="share-label">URL복사</span>
+          </button>
+          <button class="share-option" id="share-qr" type="button" aria-label="QR 코드 보기">
+            <span class="share-icon">▦</span>
+            <span class="share-label">QR코드</span>
+          </button>
+        </div>
+        <button class="sheet-close" id="share-sheet-close" type="button">닫기</button>
+      </div>
+    </div>
+
+    <div class="sheet-overlay" id="copy-alert" hidden>
+      <div class="copy-alert-card" role="alert">URL이 복사되었습니다. 원하는 곳에 붙여넣기해 주세요.</div>
+    </div>
+
+    <div class="sheet-overlay" id="qr-sheet" hidden>
+      <div class="qr-sheet-card" role="dialog" aria-label="QR 코드">
+        <img id="qr-image" src="images/qr.png" alt="청첩장 QR 코드" />
+        <div class="qr-actions">
+          <button class="sheet-close" id="qr-close" type="button">닫기</button>
+          <a class="sheet-download" id="qr-download" href="images/qr.png" download="wedding-qr.png">다운로드</a>
+        </div>
+      </div>
+    </div>
 
     <div class="gallery-modal" id="gallery-modal" hidden>
       <div class="gallery-modal-content">
