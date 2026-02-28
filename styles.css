@@ -71,6 +71,7 @@ main {
   padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0;
   overflow: visible;
 }
@@ -95,10 +96,11 @@ main {
 }
 
 .hero-visual {
-  width: 400px;
-  height: 600px;
+  width: calc(100% - 40px);
+  max-width: 400px;
   margin: 0 auto;
   flex: 0 0 auto;
+  aspect-ratio: 2 / 3;
   border-radius: 999px 999px 0 0;
   overflow: hidden;
   box-shadow:
@@ -107,8 +109,8 @@ main {
 }
 
 .hero-visual img {
-  width: 400px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
