@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@300;500;700&family=Parisienne&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -44,27 +44,54 @@
       </header>
 
       <main>
-      <section class="section card reveal" id="message" aria-labelledby="message-title">
-        <h2 id="message-title">초대합니다</h2>
-        <p>
-          저희 두 사람이 사랑과 믿음으로 한 가정을 이루게 되었습니다.<br />
-          귀한 걸음으로 함께하시어 축복해 주시면 더없는 기쁨으로 간직하겠습니다.
-        </p>
-        <div class="family-grid">
-          <div class="family-card groom-side">
-            <p class="label">신랑측</p>
-            <p>신랑 김태완</p>
-            <p>아버지 김종순 · 어머니 김성실</p>
-          </div>
-          <div class="family-card bride-side">
-            <p class="label">신부측</p>
-            <p>신부 우지현</p>
-            <p>아버지 우돈규 · 어머니 김학임</p>
+      <section class="section reveal message-flow" id="message" aria-labelledby="message-title">
+        <div class="wave-top" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 65" preserveAspectRatio="xMidYMid meet">
+            <title>초대 섹션 물결 장식</title>
+            <g fill="#f5fbf2" stroke="none" transform="translate(0,65) scale(0.1,-0.1)">
+              <path d="M6470 629 c-1061 -34 -2002 -142 -3561 -408 -675 -115 -1198 -174 -1899 -214 -30 -2 2755 -3 6190 -3 3435 0 6225 1 6200 3 -25 1 -126 7 -225 13 -536 32 -1103 100 -1740 210 -737 127 -1570 247 -2110 305 -835 89 -1920 125 -2855 94z"></path>
+            </g>
+            <g fill="#f5fbf2" stroke="none" transform="translate(0,65) scale(0.1,-0.1)" opacity="0.5">
+              <path d="M0 322 l0 -322 3073 1 c1689 1 3018 5 2952 10 -705 47 -1210 110 -1970 245 -324 57 -1231 193 -1590 238 -665 83 -1301 126 -2117 142 l-348 7 0 -321z"></path>
+              <path d="M13880 633 c-743 -17 -1425 -69 -2105 -159 -340 -45 -1173 -172 -1460 -223 -763 -135 -1251 -194 -2020 -244 -27 -2 1335 -4 3028 -5 l3077 -2 0 320 0 320 -207 -2 c-115 -1 -255 -3 -313 -5z"></path>
+            </g>
+          </svg>
+        </div>
+
+        <div class="message-content">
+          <h2 id="message-title" class="invite-heading">INVITE YOU</h2>
+          <p>
+            저희 두 사람이 사랑과 믿음으로 한 가정을 이루게 되었습니다.<br />
+            귀한 걸음으로 함께하시어 축복해 주시면 더없는 기쁨으로 간직하겠습니다.
+          </p>
+          <div class="family-grid">
+            <div class="family-card groom-side">
+              <p class="label">신랑측</p>
+              <p>신랑 김태완</p>
+              <p>아버지 김종순 · 어머니 김성실</p>
+            </div>
+            <div class="family-card bride-side">
+              <p class="label">신부측</p>
+              <p>신부 우지현</p>
+              <p>아버지 우돈규 · 어머니 김학임</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section card reveal" id="info" aria-labelledby="info-title">
+      <section class="section card tone-white reveal" id="info" aria-labelledby="info-title">
+        <div class="wave-bridge wave-white" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 65" preserveAspectRatio="xMidYMid meet">
+            <title>흰색 전환 물결</title>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)">
+              <path d="M6470 629 c-1061 -34 -2002 -142 -3561 -408 -675 -115 -1198 -174 -1899 -214 -30 -2 2755 -3 6190 -3 3435 0 6225 1 6200 3 -25 1 -126 7 -225 13 -536 32 -1103 100 -1740 210 -737 127 -1570 247 -2110 305 -835 89 -1920 125 -2855 94z"></path>
+            </g>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)" opacity="0.5">
+              <path d="M0 322 l0 -322 3073 1 c1689 1 3018 5 2952 10 -705 47 -1210 110 -1970 245 -324 57 -1231 193 -1590 238 -665 83 -1301 126 -2117 142 l-348 7 0 -321z"></path>
+              <path d="M13880 633 c-743 -17 -1425 -69 -2105 -159 -340 -45 -1173 -172 -1460 -223 -763 -135 -1251 -194 -2020 -244 -27 -2 1335 -4 3028 -5 l3077 -2 0 320 0 320 -207 -2 c-115 -1 -255 -3 -313 -5z"></path>
+            </g>
+          </svg>
+        </div>
         <h2 id="info-title">예식 안내</h2>
         <dl class="info-list">
           <div><dt>일시</dt><dd>2026년 07월 11일 토요일 12:00</dd></div>
@@ -78,7 +105,19 @@
         <p class="feedback" id="address-feedback" role="status" aria-live="polite"></p>
       </section>
 
-      <section class="section card reveal" id="gallery" aria-labelledby="gallery-title">
+      <section class="section card tone-mint reveal" id="gallery" aria-labelledby="gallery-title">
+        <div class="wave-bridge wave-mint" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 65" preserveAspectRatio="xMidYMid meet">
+            <title>민트 전환 물결</title>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)">
+              <path d="M6470 629 c-1061 -34 -2002 -142 -3561 -408 -675 -115 -1198 -174 -1899 -214 -30 -2 2755 -3 6190 -3 3435 0 6225 1 6200 3 -25 1 -126 7 -225 13 -536 32 -1103 100 -1740 210 -737 127 -1570 247 -2110 305 -835 89 -1920 125 -2855 94z"></path>
+            </g>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)" opacity="0.5">
+              <path d="M0 322 l0 -322 3073 1 c1689 1 3018 5 2952 10 -705 47 -1210 110 -1970 245 -324 57 -1231 193 -1590 238 -665 83 -1301 126 -2117 142 l-348 7 0 -321z"></path>
+              <path d="M13880 633 c-743 -17 -1425 -69 -2105 -159 -340 -45 -1173 -172 -1460 -223 -763 -135 -1251 -194 -2020 -244 -27 -2 1335 -4 3028 -5 l3077 -2 0 320 0 320 -207 -2 c-115 -1 -255 -3 -313 -5z"></path>
+            </g>
+          </svg>
+        </div>
         <h2 id="gallery-title">갤러리</h2>
         <div class="gallery-viewer">
           <button class="gallery-nav prev" id="gallery-prev" type="button" aria-label="이전 사진">&#10094;</button>
@@ -90,7 +129,19 @@
         <div class="thumb-strip" id="gallery-thumbs"></div>
       </section>
 
-      <section class="section card reveal" id="location" aria-labelledby="location-title">
+      <section class="section card tone-white reveal" id="location" aria-labelledby="location-title">
+        <div class="wave-bridge wave-white" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 65" preserveAspectRatio="xMidYMid meet">
+            <title>흰색 전환 물결</title>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)">
+              <path d="M6470 629 c-1061 -34 -2002 -142 -3561 -408 -675 -115 -1198 -174 -1899 -214 -30 -2 2755 -3 6190 -3 3435 0 6225 1 6200 3 -25 1 -126 7 -225 13 -536 32 -1103 100 -1740 210 -737 127 -1570 247 -2110 305 -835 89 -1920 125 -2855 94z"></path>
+            </g>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)" opacity="0.5">
+              <path d="M0 322 l0 -322 3073 1 c1689 1 3018 5 2952 10 -705 47 -1210 110 -1970 245 -324 57 -1231 193 -1590 238 -665 83 -1301 126 -2117 142 l-348 7 0 -321z"></path>
+              <path d="M13880 633 c-743 -17 -1425 -69 -2105 -159 -340 -45 -1173 -172 -1460 -223 -763 -135 -1251 -194 -2020 -244 -27 -2 1335 -4 3028 -5 l3077 -2 0 320 0 320 -207 -2 c-115 -1 -255 -3 -313 -5z"></path>
+            </g>
+          </svg>
+        </div>
         <h2 id="location-title">오시는 길</h2>
         <div class="map-frame">
           <iframe
@@ -130,7 +181,19 @@
         </div>
       </section>
 
-      <section class="section card reveal" id="rsvp" aria-labelledby="rsvp-title">
+      <section class="section card tone-mint reveal" id="rsvp" aria-labelledby="rsvp-title">
+        <div class="wave-bridge wave-mint" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 65" preserveAspectRatio="xMidYMid meet">
+            <title>민트 전환 물결</title>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)">
+              <path d="M6470 629 c-1061 -34 -2002 -142 -3561 -408 -675 -115 -1198 -174 -1899 -214 -30 -2 2755 -3 6190 -3 3435 0 6225 1 6200 3 -25 1 -126 7 -225 13 -536 32 -1103 100 -1740 210 -737 127 -1570 247 -2110 305 -835 89 -1920 125 -2855 94z"></path>
+            </g>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)" opacity="0.5">
+              <path d="M0 322 l0 -322 3073 1 c1689 1 3018 5 2952 10 -705 47 -1210 110 -1970 245 -324 57 -1231 193 -1590 238 -665 83 -1301 126 -2117 142 l-348 7 0 -321z"></path>
+              <path d="M13880 633 c-743 -17 -1425 -69 -2105 -159 -340 -45 -1173 -172 -1460 -223 -763 -135 -1251 -194 -2020 -244 -27 -2 1335 -4 3028 -5 l3077 -2 0 320 0 320 -207 -2 c-115 -1 -255 -3 -313 -5z"></path>
+            </g>
+          </svg>
+        </div>
         <h2 id="rsvp-title">RSVP</h2>
         <form id="rsvp-form" novalidate>
           <div class="field">
@@ -173,7 +236,19 @@
         </form>
       </section>
 
-      <section class="section card reveal" id="extras" aria-labelledby="extras-title">
+      <section class="section card tone-white reveal" id="extras" aria-labelledby="extras-title">
+        <div class="wave-bridge wave-white" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 65" preserveAspectRatio="xMidYMid meet">
+            <title>흰색 전환 물결</title>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)">
+              <path d="M6470 629 c-1061 -34 -2002 -142 -3561 -408 -675 -115 -1198 -174 -1899 -214 -30 -2 2755 -3 6190 -3 3435 0 6225 1 6200 3 -25 1 -126 7 -225 13 -536 32 -1103 100 -1740 210 -737 127 -1570 247 -2110 305 -835 89 -1920 125 -2855 94z"></path>
+            </g>
+            <g fill="currentColor" stroke="none" transform="translate(0,65) scale(0.1,-0.1)" opacity="0.5">
+              <path d="M0 322 l0 -322 3073 1 c1689 1 3018 5 2952 10 -705 47 -1210 110 -1970 245 -324 57 -1231 193 -1590 238 -665 83 -1301 126 -2117 142 l-348 7 0 -321z"></path>
+              <path d="M13880 633 c-743 -17 -1425 -69 -2105 -159 -340 -45 -1173 -172 -1460 -223 -763 -135 -1251 -194 -2020 -244 -27 -2 1335 -4 3028 -5 l3077 -2 0 320 0 320 -207 -2 c-115 -1 -255 -3 -313 -5z"></path>
+            </g>
+          </svg>
+        </div>
         <h2 id="extras-title">추가 안내</h2>
 
         <div class="extras-block">
@@ -251,16 +326,19 @@
 
     <nav class="bottom-control-bar" aria-label="하단 컨트롤 바">
       <button class="bar-control" id="bar-sound" type="button" aria-label="사운드 켜기" aria-pressed="false">
-        <span class="bar-icon" id="bar-sound-icon">🔇</span>
-        <span class="bar-text" id="bar-sound-text">Sound Off</span>
+        <span class="bar-icon" id="bar-sound-icon" aria-hidden="true"></span>
       </button>
       <button class="bar-control" id="bar-menu" type="button" aria-label="메뉴 열기" aria-expanded="false">
-        <span class="bar-icon" id="bar-menu-icon">☰</span>
-        <span class="bar-text">Menu</span>
+        <span class="bar-icon" id="bar-menu-icon" aria-hidden="true"></span>
       </button>
       <button class="bar-control" id="bar-link" type="button" aria-label="링크 공유">
-        <span class="bar-icon">🔗</span>
-        <span class="bar-text">Link</span>
+        <span class="bar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <title>링크 아이콘</title>
+            <path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 1 0-7.07-7.07L11.4 4.53"></path>
+            <path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 1 0 7.07 7.07L12.6 19.47"></path>
+          </svg>
+        </span>
       </button>
     </nav>
 

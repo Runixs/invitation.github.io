@@ -33,6 +33,11 @@ let activeGalleryIndex = 0;
 
 const $ = (id) => document.getElementById(id);
 
+const SOUND_OFF_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>`;
+const SOUND_ON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>`;
+const MENU_OPEN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>`;
+const MENU_CLOSE_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>`;
+
 function setFeedback(element, message, type = "") {
   element.textContent = message;
   element.classList.remove("success", "error");
@@ -275,16 +280,14 @@ function initMusicControl() {
   const button = $("music-toggle");
   const barButton = $("bar-sound");
   const barIcon = $("bar-sound-icon");
-  const barText = $("bar-sound-text");
 
   const syncState = (isPlaying) => {
     button.textContent = isPlaying ? "음악 정지" : "음악 재생";
     button.setAttribute("aria-pressed", String(isPlaying));
-    if (barButton && barIcon && barText) {
+    if (barButton && barIcon) {
       barButton.setAttribute("aria-pressed", String(isPlaying));
       barButton.setAttribute("aria-label", isPlaying ? "사운드 끄기" : "사운드 켜기");
-      barIcon.textContent = isPlaying ? "🔊" : "🔇";
-      barText.textContent = isPlaying ? "Sound On" : "Sound Off";
+      barIcon.innerHTML = isPlaying ? SOUND_ON_ICON : SOUND_OFF_ICON;
     }
   };
 
@@ -336,12 +339,16 @@ function initBottomControls() {
     }
   });
 
+  if (menuIcon) {
+    menuIcon.innerHTML = MENU_OPEN_ICON;
+  }
+
   const openMenu = () => {
     menuPanel.classList.add("open");
     menuPanel.setAttribute("aria-hidden", "false");
     menuButton.setAttribute("aria-expanded", "true");
     menuButton.setAttribute("aria-label", "메뉴 닫기");
-    menuIcon.textContent = "✕";
+    menuIcon.innerHTML = MENU_CLOSE_ICON;
   };
 
   const closeMenu = () => {
@@ -349,7 +356,7 @@ function initBottomControls() {
     menuPanel.setAttribute("aria-hidden", "true");
     menuButton.setAttribute("aria-expanded", "false");
     menuButton.setAttribute("aria-label", "메뉴 열기");
-    menuIcon.textContent = "☰";
+    menuIcon.innerHTML = MENU_OPEN_ICON;
   };
 
   menuButton?.addEventListener("click", () => {
